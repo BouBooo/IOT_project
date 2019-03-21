@@ -3,11 +3,11 @@
         "module": "[fill]", 
         "size": {
             ".data-delta": 0, 
-            ".text-delta": -36, 
-            ".bss": 26, 
-            ".data": 7, 
+            ".text-delta": 2, 
+            ".bss": 83, 
+            ".data": 40, 
             ".bss-delta": 0, 
-            ".text": 127
+            ".text": 426
         }
     }, 
     {
@@ -18,7 +18,7 @@
             ".bss": 89, 
             ".data": 2472, 
             ".bss-delta": 0, 
-            ".text": 25021
+            ".text": 31897
         }
     }, 
     {
@@ -29,7 +29,7 @@
             ".bss": 0, 
             ".data": 0, 
             ".bss-delta": 0, 
-            ".text": 3328
+            ".text": 3168
         }
     }, 
     {
@@ -44,14 +44,47 @@
         }
     }, 
     {
+        "module": "[lib]/nosys.a", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 32
+        }
+    }, 
+    {
+        "module": "[lib]/stdc++.a", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 0, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 1
+        }
+    }, 
+    {
         "module": "main.o", 
         "size": {
             ".data-delta": 0, 
-            ".text-delta": 36, 
-            ".bss": 358, 
-            ".data": 5, 
+            ".text-delta": 0, 
+            ".bss": 352, 
+            ".data": 4, 
             ".bss-delta": 0, 
-            ".text": 734
+            ".text": 378
+        }
+    }, 
+    {
+        "module": "main_mqtt.o", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": -2, 
+            ".bss": 52, 
+            ".data": 4, 
+            ".bss-delta": 0, 
+            ".text": 3124
         }
     }, 
     {
@@ -70,10 +103,10 @@
         "size": {
             ".data-delta": 0, 
             ".text-delta": 0, 
-            ".bss": 0, 
-            ".data": 0, 
+            ".bss": 458, 
+            ".data": 9, 
             ".bss-delta": 0, 
-            ".text": 120
+            ".text": 5138
         }
     }, 
     {
@@ -81,10 +114,21 @@
         "size": {
             ".data-delta": 0, 
             ".text-delta": 0, 
-            ".bss": 184, 
+            ".bss": 228, 
             ".data": 4, 
             ".bss-delta": 0, 
-            ".text": 1417
+            ".text": 2581
+        }
+    }, 
+    {
+        "module": "mbed-os/events", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 1572, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 1643
         }
     }, 
     {
@@ -92,10 +136,10 @@
         "size": {
             ".data-delta": 0, 
             ".text-delta": 0, 
-            ".bss": 192, 
-            ".data": 4, 
+            ".bss": 41266, 
+            ".data": 551, 
             ".bss-delta": 0, 
-            ".text": 172
+            ".text": 194005
         }
     }, 
     {
@@ -106,7 +150,7 @@
             ".bss": 66, 
             ".data": 4, 
             ".bss-delta": 0, 
-            ".text": 2105
+            ".text": 2111
         }
     }, 
     {
@@ -117,7 +161,7 @@
             ".bss": 140, 
             ".data": 260, 
             ".bss-delta": 0, 
-            ".text": 3408
+            ".text": 3594
         }
     }, 
     {
@@ -125,10 +169,10 @@
         "size": {
             ".data-delta": 0, 
             ".text-delta": 0, 
-            ".bss": 5973, 
+            ".bss": 5981, 
             ".data": 168, 
             ".bss-delta": 0, 
-            ".text": 7608
+            ".text": 11803
         }
     }, 
     {
@@ -136,18 +180,29 @@
         "size": {
             ".data-delta": 0, 
             ".text-delta": 0, 
-            ".bss": 908, 
+            ".bss": 1445, 
             ".data": 4, 
             ".bss-delta": 0, 
-            ".text": 19750
+            ".text": 23157
+        }
+    }, 
+    {
+        "module": "mqtt-mbed/MQTTPacket", 
+        "size": {
+            ".data-delta": 0, 
+            ".text-delta": 0, 
+            ".bss": 4, 
+            ".data": 0, 
+            ".bss-delta": 0, 
+            ".text": 1832
         }
     }, 
     {
         "summary": {
-            "static_ram": 10992, 
+            "static_ram": 55384, 
             "total_flash_delta": 0, 
             "static_ram_delta": 0, 
-            "total_flash": 68019
+            "total_flash": 289711
         }
     }
 ]

@@ -35,7 +35,7 @@ int x = 0;
 
 // main() runs in its own thread in the OS
 // (note the calls to Thread::wait below for delays)
-int main()
+int data()
 {
     while (x<40) {
         // test the voltage on the initialized analog pin
