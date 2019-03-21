@@ -78,8 +78,10 @@ int main() {
     MQTT::Message message;
 
     // QoS 0
+    float temp = 25.5;
+
     char buf[100];
-    sprintf(buf, "Hello World!  QoS 0 message from Silouan & Florent\r\n");
+    sprintf(buf, "%f", temp);
 
     message.qos = MQTT::QOS0;
     message.retained = false;
