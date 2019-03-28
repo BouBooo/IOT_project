@@ -107,10 +107,8 @@ int main() {
     MQTT::Message message;
 
     // QoS 0
-
     float humidite = humidity();
     float temp = temperature();
-
 
     char buf[100];
     sprintf(buf, "%f", temp);
@@ -122,6 +120,18 @@ int main() {
     message.payloadlen = strlen(buf)+1;
 
     rc = client.publish(topic_temp, message);
+
+    // second msg
+
+    sprintf(buf, "%f", humidite);
+
+    message.qos = MQTT::QOS0;
+    message.retained = false;
+    message.dup = false;
+    message.payload = (void*)buf;
+    message.payloadlen = strlen(buf)+1;
+
+    rc = client.publish(topic_hum, message);
 
     // yield function is used to refresh the connection
     // Here we yield until we receive the message we sent
