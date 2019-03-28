@@ -3,8 +3,8 @@
 
 ## A propos
 
-Environnement : Linux (Ubuntu)
-Langage : C++
+ - Environnement : Linux (Ubuntu)
+ - Langage : C++
 
 L’objet connecté intègre un microcontrôleur programmable (intégré sur la carte ZEST_CORE_STM32L496RG), une carte de prototypage sur laquelle sont montée le capteur de température LM75 qui communique en I2C, et un capteur d’humidité analogique, et enﬁn, une carte de communication (Zest_Radio_ATZBRF233) permet de communiquer avec internet grâce à la technologie 6LoWPAN.
 
