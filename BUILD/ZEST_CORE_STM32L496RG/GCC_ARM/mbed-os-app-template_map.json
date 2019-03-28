@@ -3,11 +3,11 @@
         "module": "[fill]", 
         "size": {
             ".data-delta": 0, 
-            ".text-delta": 0, 
+            ".text-delta": 41, 
             ".bss": 81, 
             ".data": 43, 
-            ".bss-delta": 0, 
-            ".text": 449
+            ".bss-delta": -4, 
+            ".text": 465
         }
     }, 
     {
@@ -69,11 +69,11 @@
         "module": "main_mqtt.o", 
         "size": {
             ".data-delta": 0, 
-            ".text-delta": 0, 
+            ".text-delta": 393, 
             ".bss": 406, 
             ".data": 13, 
-            ".bss-delta": 0, 
-            ".text": 3795
+            ".bss-delta": 4, 
+            ".text": 3639
         }
     }, 
     {
@@ -146,7 +146,7 @@
         "module": "mbed-os/platform", 
         "size": {
             ".data-delta": 0, 
-            ".text-delta": 0, 
+            ".text-delta": -152, 
             ".bss": 140, 
             ".data": 260, 
             ".bss-delta": 0, 
@@ -161,7 +161,7 @@
             ".bss": 5981, 
             ".data": 168, 
             ".bss-delta": 0, 
-            ".text": 11803
+            ".text": 11813
         }
     }, 
     {
@@ -179,19 +179,19 @@
         "module": "mqtt-mbed/MQTTPacket", 
         "size": {
             ".data-delta": 0, 
-            ".text-delta": 0, 
+            ".text-delta": 310, 
             ".bss": 4, 
             ".data": 0, 
             ".bss-delta": 0, 
-            ".text": 1832
+            ".text": 1826
         }
     }, 
     {
         "summary": {
             "static_ram": 55392, 
-            "total_flash_delta": 0, 
+            "total_flash_delta": 592, 
             "static_ram_delta": 0, 
-            "total_flash": 292295
+            "total_flash": 292159
         }
     }
 ]

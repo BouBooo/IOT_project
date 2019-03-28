@@ -4,6 +4,9 @@
 #include "MQTTmbed.h"
 #include "MQTTClient.h"
 
+namespace {
+#define WAITEEE_MS 20000
+}
 
 static DigitalOut led1(LED1);
 static I2C i2c(I2C1_SDA, I2C1_SCL);
@@ -102,36 +105,46 @@ int main() {
     // Subscribe to the same topic we will publish in
     if ((rc = client.subscribe(topic_temp, MQTT::QOS2, messageArrived)) != 0)
         printf("rc from MQTT subscribe is %d\r\n", rc);
+    // Subscribe to the same topic we will publish in
+    if ((rc = client.subscribe(topic_hum, MQTT::QOS2, messageArrived)) != 0)
+        printf("rc from MQTT subscribe is %d\r\n", rc);
 
-    // Send a message with QoS 0
-    MQTT::Message message;
+    while(true)
+    {
+        // Send a message with QoS 0
+        MQTT::Message message;
 
-    // QoS 0
-    float humidite = humidity();
-    float temp = temperature();
+        // QoS 0
+        float humidite = humidity();
+        float temp = temperature();
 
-    char buf[100];
-    sprintf(buf, "%f", temp);
+        char buf[100];
+        sprintf(buf, "%f", temp);
 
-    message.qos = MQTT::QOS0;
-    message.retained = false;
-    message.dup = false;
-    message.payload = (void*)buf;
-    message.payloadlen = strlen(buf)+1;
+        message.qos = MQTT::QOS0;
+        message.retained = false;
+        message.dup = false;
+        message.payload = (void*)buf;
+        message.payloadlen = strlen(buf)+1;
 
-    rc = client.publish(topic_temp, message);
+        rc = client.publish(topic_temp, message);
 
-    // second msg
 
-    sprintf(buf, "%f", humidite);
+        // second msg
 
-    message.qos = MQTT::QOS0;
-    message.retained = false;
-    message.dup = false;
-    message.payload = (void*)buf;
-    message.payloadlen = strlen(buf)+1;
+        sprintf(buf, "%f", humidite);
 
-    rc = client.publish(topic_hum, message);
+        message.qos = MQTT::QOS0;
+        message.retained = false;
+        message.dup = false;
+        message.payload = (void*)buf;
+        message.payloadlen = strlen(buf)+1;
+
+        rc = client.publish(topic_hum, message);
+
+        Thread::wait(WAITEEE_MS);
+    }
+
 
     // yield function is used to refresh the connection
     // Here we yield until we receive the message we sent
