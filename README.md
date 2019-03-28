@@ -1,81 +1,26 @@
-# Embedded application template
+# Projets IoT - Plante connectée
 
-## Requirements
 
-None
+## A propos
 
-## Usage
+Environnement : Linux (Ubuntu)
+Langage : C++
 
-To clone **and** deploy the project in one command, use `mbed import` and skip to
-the target and toolchain definition:
+L’objet connecté intègre un microcontrôleur programmable (intégré sur la carte ZEST_CORE_STM32L496RG), une carte de prototypage sur laquelle sont montée le capteur de température LM75 qui communique en I2C, et un capteur d’humidité analogique, et enﬁn, une carte de communication (Zest_Radio_ATZBRF233) permet de communiquer avec internet grâce à la technologie 6LoWPAN.
 
-    mbed import https://gitlab.com/catie_6tron/mbed-os-app-template.git YOUR_PROJECT_NAME
 
-Alternatively:
 
-* Clone to `YOUR_PROJECT_NAME` and enter it:
+## Objectifs
 
-    ```sh
-    git clone https://gitlab.com/catie_6tron/mbed-os-app-template.git YOUR_PROJECT_NAME
-    cd YOUR_PROJECT_NAME
-    ```
+L’objectif du projet et de mettre en oeuvre l’ensembles des technologies présentées en cours pour réaliser un objet connecté qui permettra de remonter des données environnementales vers le Cloud. Diﬀérents services pourrons ensuite être développé pour valoriser ces données, les traiter et interagir avec l’objet.
 
-* Create an empty Mbed configuration file, otherwise Mbed CLI commands won't work:
+## Fonctionnalités 
 
-    On Linux/macOS:
+ - Acquisition régulière de la température et de l’humidité 
+ - Remonter les données sur la plateforme Cloud adafruit.io grâce au protocole MQTT
 
-    ```sh
-    touch .mbed on Linux/macOS
-    ```
+## Documentation utilisée
 
-    Or on Windows:
-
-    ```sh
-    echo.> .mbed
-    ```
-
-* Deploy Mbed OS with:
-
-    ```sh
-    mbed deploy
-    ```
-
-* Define your target (eg. `ZEST_CORE_STM32L496RG`) and toolchain:
-
-    ```sh
-    mbed target ZEST_CORE_STM32L496RG
-    mbed toolchain GCC_ARM
-    ```
-
-* Export to Eclipse IDE with:
-
-    ```sh
-    mbed export -i eclipse_6tron
-    ```
-
-## Compiling and programming without IDE
-
-* Compile the project:
-
-    ```sh
-    mbed compile
-    ```
-
-* Program the target device (eg. `STM32L496RG` for the Zest_Core_STM32L496RG) with a
-  J-Link debug probe:
-
-    ```sh
-    python dist/program.py STM32L496RG BUILD/ZEST_CORE_STM32L496RG/GCC_ARM/YOUR_PROJECT_NAME.elf
-    ```
-
-## Manage and save your project with Git
-
-* Edit `README.md` file
-
-* Modify remote URL to point to your repository and push the application template:
-
-    ```sh
-    git remote set-url origin YOUR_REPOSITORY_URL
-    git push -u origin master
-    ```
-
+- API Mbed OS : https://os.mbed.com/docs/mbed-os/v5.11/apis/index.html 
+- Documentation cartes 6TRON : https://member.6tron.io/fr/m/ressources/ 
+- Datasheet LM75 : https://datasheets.maximintegrated.com/en/ds/LM75.pdf
