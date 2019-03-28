@@ -4,12 +4,41 @@
 #include "MQTTmbed.h"
 #include "MQTTClient.h"
 
+
+static DigitalOut led1(LED1);
+static I2C i2c(I2C1_SDA, I2C1_SCL);
+static AnalogIn adc(ADC_IN1);
+
+char cmdd[2];
+uint8_t lm75_adress = 0x48 << 1;
+
 // Network interface
 NetworkInterface *net;
 
 int arrivedcount = 0;
 const char* topic_temp = "Ynov/feeds/tempfeed";
 const char* topic_hum = "Ynov/feeds/humidityfeed";
+
+
+float humidity()
+{
+	float hum = adc.read()*3.3;
+	float measure_percent = hum * 100.0 / 3.3;
+	printf("Humidity : %f%\n", measure_percent);
+	return measure_percent;
+
+}
+
+float temperature()
+{
+    //Temperature
+    cmdd[0] = 0x00;
+    i2c.write(lm75_adress, cmdd, 1);
+    i2c.read(lm75_adress, cmdd, 2);
+    float temperature = ((cmdd[0] << 8 | cmdd[1]) >> 7) * 0.5;
+    printf("Temperature : %f \n", temperature);
+    return temperature;
+}
 
 /* Printf the message received and its configuration */
 void messageArrived(MQTT::MessageData& md)
@@ -78,7 +107,10 @@ int main() {
     MQTT::Message message;
 
     // QoS 0
-    float temp = 25.5;
+
+    float humidite = humidity();
+    float temp = temperature();
+
 
     char buf[100];
     sprintf(buf, "%f", temp);
